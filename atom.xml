@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://ascodelife.github.io/"/>
   <updated>2020-04-12T11:43:31.763Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://ascodelife.github.io/</id>
   
   <author>
     <name>John Doe</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>test</title>
-    <link href="http://yoursite.com/2020/04/12/test/"/>
-    <id>http://yoursite.com/2020/04/12/test/</id>
+    <link href="https://ascodelife.github.io/2020/04/12/test/"/>
+    <id>https://ascodelife.github.io/2020/04/12/test/</id>
     <published>2020-04-12T08:13:44.000Z</published>
     <updated>2020-04-12T11:43:31.763Z</updated>
     
@@ -28,17 +28,17 @@
     </summary>
     
     
-      <category term="front-end" scheme="http://yoursite.com/categories/front-end/"/>
+      <category term="front-end" scheme="https://ascodelife.github.io/categories/front-end/"/>
     
     
-      <category term="1111" scheme="http://yoursite.com/tags/1111/"/>
+      <category term="1111" scheme="https://ascodelife.github.io/tags/1111/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2020/04/12/hello-world/"/>
-    <id>http://yoursite.com/2020/04/12/hello-world/</id>
+    <link href="https://ascodelife.github.io/2020/04/12/hello-world/"/>
+    <id>https://ascodelife.github.io/2020/04/12/hello-world/</id>
     <published>2020-04-12T08:04:27.387Z</published>
     <updated>2020-04-12T08:04:27.387Z</updated>
     
