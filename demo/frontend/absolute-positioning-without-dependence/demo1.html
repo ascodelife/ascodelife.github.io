@@ -7,7 +7,7 @@
 
     
 
-    <title>absolute-positioning-without-dependence | Welcome to my blog</title>
+    <title>Welcome to my blog</title>
     <meta name="author" content="John Doe" />
     <meta name="keywords" content="" />
     <meta name="description" content="" />
@@ -45,7 +45,7 @@
     </style>
     <script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
     <![endif]-->
-<meta name="generator" content="Hexo 4.2.0"></head>
+</head>
 <body>
 
     <main class="app">
@@ -93,8 +93,6 @@
 
         
         
-        
-        
 
         
         <div class="author-meta">
@@ -137,36 +135,52 @@
             <div id="wrapper" class="wrapper" style="max-width: 800px">
                 <article class="article" itemscope itemprop="blogPost">
     
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            absolute-positioning-without-dependence
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="https://ascodelife.github.io/2020/04/13/absolute-positioning-without-dependence-1/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-04-12T19:31:58.000Z" itemprop="datePublished">2020-04-13</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
     <section class="article-body markdown-body">
         
-        
+        <!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>文档标题</title>
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Welcome to my blog" type="application/atom+xml">
+</head>
+<body>
+<div class="regist-box">
+                <div class="regist-group">
+                    <label class="regist-label"><span class="regist-star">*</span>邮箱</label>
+                    <div class="regist-cell">
+                        <input type="email" class="regist-input focus"><span class="regist-remark regist-warn">
+                            邮箱格式不准确（示意）
+                        </span>
+                    </div>
+                </div>
+                <div class="regist-group">
+                    <label class="regist-label"><span class="regist-star">*</span>密码</label>
+                    <div class="regist-cell">
+                        <input type="password" class="regist-input focus"><span class="regist-remark">
+                            请输入6-16位密码，不能使用空格
+                        </span>
+                    </div>
+                </div>
+                <div class="regist-group">
+                    <label class="regist-label">手机号码</label>
+                    <div class="regist-cell">
+                        <input type="tel" class="regist-input focus">
+                    </div>
+                </div>
+                <div class="regist-group">
+                    <label class="regist-label"></label>
+                    <div class="regist-cell">
+                        <a href="javascript:" class="regist-btn">立即注册</a>
+                    </div>
+                </div>
+            </div>
+</body>
+</html>
+
         
     </section>
 </article>
-
-
-
-<a id="pagenext" href="/2020/04/12/absolute-positioning-without-dependence/" class="article-next" title="无依赖absolute绝对定位"><i class="icon-arrow-right"></i></a>
-
 
 
 
@@ -180,10 +194,10 @@
         repo: "ascodelife.github.io",
         owner: "ascodelife",
         admin: ["ascodelife"],
-        id: "2020/04/13/absolute-positioning-without-dependence-1",
+        id: "demo/frontend/absolute-positioning-without-dependence/demo1.html",
         distractionFreeMode: true,
-        title: "absolute-positioning-without-dependence",
-        body: "https://ascodelife.github.io/2020/04/13/absolute-positioning-without-dependence-1/",
+        title: "",
+        body: "https://ascodelife.github.io/demo/frontend/absolute-positioning-without-dependence/demo1.html",
         labels: []
     }).render('comments');
     </script>
@@ -251,33 +265,6 @@
         }
     });
     </script>
-    
-        
-<script src="/js/scrollspy.min.js"></script>
-
-        <script type="text/javascript">
-        $(document.body).scrollspy({target: '#aside-inner'});
-
-        $(window).on('resize', function() {
-            var hw = $('#header').width();
-            var ww = $('#wrapper').width();
-            var space = ($(this).width() - hw - ww) / 2 / 2;
-
-            var pageprev = $('#pageprev');
-            var pagenext = $('#pagenext');
-            var avg = (pageprev.width() + pagenext.width()) / 2
-
-            if(space > avg) {
-                var len = space - avg / 2;
-                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
-                pageprev.css($.extend({left: hw + len}, styles));
-                pagenext.css($.extend({right: len}, styles));
-            } else {
-                pageprev.removeAttr('style');
-                pagenext.removeAttr('style');
-            }
-        }).trigger('resize');
-        </script>
     
 
 </body>
