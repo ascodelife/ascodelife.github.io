@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ascodelife.github.io/"/>
-  <updated>2020-04-12T16:33:01.026Z</updated>
+  <updated>2020-04-12T16:35:33.813Z</updated>
   <id>https://ascodelife.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>absolute-positioning-without-dependence</title>
+    <title>无依赖absolute绝对定位</title>
     <link href="https://ascodelife.github.io/2020/04/12/absolute-positioning-without-dependence/"/>
     <id>https://ascodelife.github.io/2020/04/12/absolute-positioning-without-dependence/</id>
     <published>2020-04-12T15:59:44.000Z</published>
-    <updated>2020-04-12T16:33:01.026Z</updated>
+    <updated>2020-04-12T16:35:33.813Z</updated>
     
     <summary type="html">
     
