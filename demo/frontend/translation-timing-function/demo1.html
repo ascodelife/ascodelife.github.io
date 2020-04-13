@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>demo1</title>
+    <style>
+        .runner,
+        .track {
+            height: 80px;
+        }
+        
+        .track {
+            width: 500px;
+            margin: 10px 0px;
+            background: yellow;
+            text-align: center;
+            line-height: 80px;
+            font-size: 20px;
+        }
+        
+        .runner,
+        .track:hover>.runner {
+            transition: transform 1s;
+        }
+        
+        .runner {
+            width: 100px;
+            border: solid;
+            line-height: 80px;
+            position: absolute;
+        }
+        
+        .track:hover>.runner {
+            transform: translate(400px);
+        }
+        
+        .track>.linear,
+        .track:hover>.linear {
+            transition-timing-function: linear
+        }
+        
+        .track>.ease-in,
+        .track:hover>.ease-in {
+            transition-timing-function: ease-in
+        }
+        
+        .track>.ease-out,
+        .track:hover>.ease-out {
+            transition-timing-function: ease-out
+        }
+        
+        .track>.ease-in-out,
+        .track:hover>.ease-in-out {
+            transition-timing-function: ease-in-out;
+        }
+        
+        .track>.steps-start,
+        .track:hover>.steps-start {
+            transition-timing-function: steps(5, start);
+        }
+        
+        .track>.steps-end,
+        .track:hover>.steps-end {
+            transition-timing-function: steps(5, end);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="track-container">
+        <div class="track">
+            <div class="runner linear"></div>
+            linear赛道，匀速
+        </div>
+        <div class="track">
+            <div class="runner ease"></div>
+            ease赛道：默认值，起步快，减速
+        </div>
+        <div class="track">
+            <div class="runner ease-in"></div>
+            ease-in赛道：加速
+        </div>
+        <div class="track">
+            <div class="runner ease-out"></div>
+            ease-out赛道：减速
+        </div>
+        <div class="track">
+            <div class="runner ease-in-out"></div>
+            ease-in-out赛道：先加速后减速
+        </div>
+        <div class="track">
+            <div class="runner steps-start"></div>steps(5,start)赛道：20% 40% 60% 80% 100%
+        </div>
+        <div class="track">
+            <div class="runner steps-end"></div>
+            steps(5,end)赛道：0 20% 40% 60% 80%
+        </div>
+    </div>
+</body>
+
+</html>
