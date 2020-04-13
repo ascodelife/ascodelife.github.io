@@ -1,39 +1,51 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8">
-<title>文档标题</title>
+    <meta charset="utf-8">
+    <title>demo1</title>
+    <style>
+        .regist-box {
+            width: 300px;
+            /* 容器定宽 */
+            margin: 0 auto;
+            border: 1px solid;
+            /* 为了便于观察给一个边框 */
+            position: relative;
+            /* 使其变成子元素的包含块 */
+        }
+        
+        input {
+            width: 200px;
+        }
+        /* 提示信息 */
+        
+        .regist-remark {
+            color: red;
+            display: none;
+            position: absolute;
+            /* 绝对定位 */
+            top: 0;
+            /* 根据包含块进行定位 */
+            left: 250px;
+            white-space: nowrap;
+        }
+        /* 输入框获得焦点显示提示信息 */
+        
+        input:focus~.regist-remark {
+            display: inline;
+        }
+    </style>
 </head>
+
 <body>
-<div class="regist-box">
-                <div class="regist-group">
-                    <label class="regist-label"><span class="regist-star">*</span>邮箱</label>
-                    <div class="regist-cell">
-                        <input type="email" class="regist-input focus"><span class="regist-remark regist-warn">
-                            邮箱格式不准确（示意）
-                        </span>
-                    </div>
-                </div>
-                <div class="regist-group">
-                    <label class="regist-label"><span class="regist-star">*</span>密码</label>
-                    <div class="regist-cell">
-                        <input type="password" class="regist-input focus"><span class="regist-remark">
-                            请输入6-16位密码，不能使用空格
-                        </span>
-                    </div>
-                </div>
-                <div class="regist-group">
-                    <label class="regist-label">手机号码</label>
-                    <div class="regist-cell">
-                        <input type="tel" class="regist-input focus">
-                    </div>
-                </div>
-                <div class="regist-group">
-                    <label class="regist-label"></label>
-                    <div class="regist-cell">
-                        <a href="javascript:" class="regist-btn">立即注册</a>
-                    </div>
-                </div>
-            </div>
+    <div class='regist-box'>
+        <div class="regist-group">
+            <label class="regist-label">邮箱</label>
+            <input type="email" class="regist-input">
+            <span class="regist-remark">请输入邮箱！</span>
+        </div>
+    </div>
 </body>
+
 </html>
