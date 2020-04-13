@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>demo3</title>
+    <style>
+        .item {
+            display: inline-block
+        }
+        
+        .item,
+        .combo_box {
+            padding: 10px;
+            border: 1px solid;
+            width: 100px;
+        }
+        
+        .combo_box {
+            position: absolute;
+            /* margin-left = -1 * (padding-left + border-left  */
+            margin-left: -11px;
+            /* margin-top = -1 * (padding-top + border-top  */
+            margin-top: 11px;
+            border-top: none;
+            display: none;
+        }
+        
+        .item:hover>.combo_box {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='box'>
+        <div class="item">
+            <a>linka</a>
+            <div class="combo_box">
+                <div class="subItem">
+                    <a>linka1</a>
+                </div>
+
+            </div>
+        </div>
+        <div class="item">
+            <a>linkb</a>
+            <div class="combo_box">
+                <div class="subItem">
+                    <a>linkb1</a>
+                </div>
+                <div class="subItem">
+
+                    <a>linkb2</a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <a>linkc</a>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>demo2</title>
+    <style>
+        .regist-box {
+            width: 300px;
+            /* 容器定宽 */
+            margin: 0 auto;
+            /* 为了便于观察给一个边框 */
+            border: 1px solid;
+            /* 使其变成子元素的包含块 */
+            /* position: relative; */
+        }
+        
+        input {
+            width: 200px;
+        }
+        /* 提示信息 */
+        
+        .regist-remark {
+            color: red;
+            display: none;
+            /* 绝对定位 */
+            position: absolute;
+            /* 根据包含块进行定位 */
+            /*top: 0;
+            left: 250px;
+            white-space: nowrap;*/
+            /* 利用margin进行偏移 */
+            margin-left: 10px;
+        }
+        /* 输入框获得焦点显示提示信息 */
+        
+        input:focus~.regist-remark {
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='regist-box'>
+        <div class="regist-group">
+            <label class="regist-label">邮箱</label>
+            <input type="email" class="regist-input">
+            <span class="regist-remark">请输入邮箱！</span>
+        </div>
+    </div>
+</body>
+
+</html>
