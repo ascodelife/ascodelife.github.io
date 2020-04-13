@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ascodelife.github.io/"/>
-  <updated>2020-04-12T19:54:20.554Z</updated>
+  <updated>2020-04-13T01:21:50.305Z</updated>
   <id>https://ascodelife.github.io/</id>
   
   <author>
@@ -21,13 +21,13 @@
     <link href="https://ascodelife.github.io/2020/04/12/absolute-positioning-without-dependence/"/>
     <id>https://ascodelife.github.io/2020/04/12/absolute-positioning-without-dependence/</id>
     <published>2020-04-12T15:59:44.000Z</published>
-    <updated>2020-04-12T19:54:20.554Z</updated>
+    <updated>2020-04-13T01:21:50.305Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="无依赖absolute绝对定位"><a href="#无依赖absolute绝对定位" class="headerlink" title="无依赖absolute绝对定位"></a>无依赖absolute绝对定位</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>聊起absolute定位，我们首先想到的就是找其包含块(containing block)或直接给父元素一个relative定位,然后根据包含块通过设置top,right,bottom,left属性值进行偏移。看起来，这是很常见的做法，但盲目的如此”套公式“，只能说你对absolute的理解不到家。</p><a id="more"></a><h2 id="何所谓“依赖”"><a href="#何所谓“依赖”" class="headerlink" title="何所谓“依赖”"></a>何所谓“依赖”</h2><p>所谓“依赖”，指的是绝对定位元素需要找到包含块，然后”依赖“包含块进行偏移或格式化元素的宽高。  </p><p>为了达到我们的目的——让子元素紧紧地“依赖”父元素，我们会“丧心病狂”的硬塞给父元素一个relative定位，甚至配合z-index属性设置层级。</p><p>好吧，先不谈父元素愿意不愿意，既然谈到了“依赖”，就不得不联想到耦合，耦合度越高的代码在应对变化时就越脆弱。</p><h2 id="传统的”有依赖”绝对定位"><a href="#传统的”有依赖”绝对定位" class="headerlink" title="传统的”有依赖”绝对定位"></a>传统的”有依赖”绝对定位</h2><p>既然要聊聊无依赖绝对定位，那么就应该先看看传统的”有依赖”绝对定位在一些经典应用场合是怎么做的，然后我们再谈怎么改进。</p><h3 id="表单提示信息"><a href="#表单提示信息" class="headerlink" title="表单提示信息"></a>表单提示信息</h3><ol><li>场景重现：填写表单时，当某个输入框获取焦点时，在输入框右侧显示一些提示信息。</li><li>场景分析：<ol><li>提示信息为不定长，若父元素宽度表现为定长，那么有可能内容会溢出；若父元素宽度表现为包裹性，那么宽度就会改变。</li><li>提示信息的显示和隐藏不能影响原布局，那么使其脱离文档流是最常见的选择。</li></ol></li><li>代码实现：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><pre><code class="css"></code></pre><iframe src="https://ascodelife.github.io/demo/frontend/absolute-positioning-without-dependence/demo1.html" width=100%></iframe></li></ol>]]></content>
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>聊起absolute定位，我们首先想到的就是找其包含块(containing block)或直接给父元素一个relative定位,然后根据包含块通过设置top,right,bottom,left属性值进行偏移。看起来，这是很常见的做法，但盲目的如此”套公式“，只能说你对absolute的理解不到家。</p><a id="more"></a><h2 id="何所谓“依赖”"><a href="#何所谓“依赖”" class="headerlink" title="何所谓“依赖”"></a>何所谓“依赖”</h2><p>所谓“依赖”，指的是绝对定位元素需要找到包含块，然后”依赖“包含块进行偏移或格式化元素的宽高。  </p><p>为了达到我们的目的——让子元素紧紧地“依赖”父元素，我们会“丧心病狂”的硬塞给父元素一个relative定位，甚至配合z-index属性设置层级。</p><p>好吧，先不谈父元素愿意不愿意，既然谈到了“依赖”，就不得不联想到耦合，耦合度越高的代码在应对变化时就越脆弱。</p><h2 id="传统的”有依赖”绝对定位"><a href="#传统的”有依赖”绝对定位" class="headerlink" title="传统的”有依赖”绝对定位"></a>传统的”有依赖”绝对定位</h2><p>既然要聊聊无依赖绝对定位，那么就应该先看看传统的”有依赖”绝对定位在一些经典应用场合是怎么做的，然后我们再谈怎么改进。</p><h3 id="表单提示信息"><a href="#表单提示信息" class="headerlink" title="表单提示信息"></a>表单提示信息</h3><ol><li>场景重现：填写表单时，当某个输入框获取焦点时，在输入框右侧显示一些提示信息。</li><li>场景分析：<ol><li>提示信息为不定长，若父元素宽度表现为定长，那么有可能内容会溢出；若父元素宽度表现为包裹性，那么宽度就会改变。</li><li>提示信息的显示和隐藏不能影响原布局，那么使其脱离文档流是最常见的选择。</li></ol></li><li>代码实现：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><pre><code class="css"></code></pre></li><li>眼见为实<iframe src="https://ascodelife.github.io/demo/frontend/absolute-positioning-without-dependence/demo1.html" width=100%></iframe></li></ol>]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;无依赖absolute绝对定位&quot;&gt;&lt;a href=&quot;#无依赖absolute绝对定位&quot; class=&quot;headerlink&quot; title=&quot;无依赖absolute绝对定位&quot;&gt;&lt;/a&gt;无依赖absolute绝对定位&lt;/h1&gt;&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;聊起absolute定位，我们首先想到的就是找其包含块(containing block)或直接给父元素一个relative定位,然后根据包含块通过设置top,right,bottom,left属性值进行偏移。看起来，这是很常见的做法，但盲目的如此”套公式“，只能说你对absolute的理解不到家。&lt;/p&gt;
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;聊起absolute定位，我们首先想到的就是找其包含块(containing block)或直接给父元素一个relative定位,然后根据包含块通过设置top,right,bottom,left属性值进行偏移。看起来，这是很常见的做法，但盲目的如此”套公式“，只能说你对absolute的理解不到家。&lt;/p&gt;
     
     </summary>
     

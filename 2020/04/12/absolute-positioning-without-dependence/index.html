@@ -10,7 +10,7 @@
     <title>无依赖absolute绝对定位 | Welcome to my blog</title>
     <meta name="author" content="John Doe" />
     <meta name="keywords" content="" />
-    <meta name="description" content="无依赖absolute绝对定位前言聊起absolute定位，我们首先想到的就是找其包含块(containing block)或直接给父元素一个relative定位,然后根据包含块通过设置top,right,bottom,left属性值进行偏移。看起来，这是很常见的做法，但盲目的如此”套公式“，只能说你对absolute的理解不到家。何所谓“依赖”所谓“依赖”，指的是绝对定位元素需要找到包含块，然后”依赖“包含块进行偏移或格式化元素的宽高。  为了达到我们的目的——让子元素紧紧地“依..." />
+    <meta name="description" content="前言聊起absolute定位，我们首先想到的就是找其包含块(containing block)或直接给父元素一个relative定位,然后根据包含块通过设置top,right,bottom,left属性值进行偏移。看起来，这是很常见的做法，但盲目的如此”套公式“，只能说你对absolute的理解不到家。何所谓“依赖”所谓“依赖”，指的是绝对定位元素需要找到包含块，然后”依赖“包含块进行偏移或格式化元素的宽高。  为了达到我们的目的——让子元素紧紧地“依赖”父元素，我们会“丧心病狂”..." />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 
@@ -97,7 +97,7 @@
         
 
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#无依赖absolute绝对定位"><span class="toc-number">1.</span> <span class="toc-text">无依赖absolute绝对定位</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#何所谓“依赖”"><span class="toc-number">1.2.</span> <span class="toc-text">何所谓“依赖”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#传统的”有依赖”绝对定位"><span class="toc-number">1.3.</span> <span class="toc-text">传统的”有依赖”绝对定位</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#表单提示信息"><span class="toc-number">1.3.1.</span> <span class="toc-text">表单提示信息</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#何所谓“依赖”"><span class="toc-number">2.</span> <span class="toc-text">何所谓“依赖”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#传统的”有依赖”绝对定位"><span class="toc-number">3.</span> <span class="toc-text">传统的”有依赖”绝对定位</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#表单提示信息"><span class="toc-number">3.1.</span> <span class="toc-text">表单提示信息</span></a></li></ol></li></ol>
         
     </div>
 </aside>
@@ -134,7 +134,7 @@
     
     <section class="article-body markdown-body">
         
-        <h1 id="无依赖absolute绝对定位"><a href="#无依赖absolute绝对定位" class="headerlink" title="无依赖absolute绝对定位"></a>无依赖absolute绝对定位</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>聊起absolute定位，我们首先想到的就是找其包含块(containing block)或直接给父元素一个relative定位,然后根据包含块通过设置top,right,bottom,left属性值进行偏移。看起来，这是很常见的做法，但盲目的如此”套公式“，只能说你对absolute的理解不到家。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>聊起absolute定位，我们首先想到的就是找其包含块(containing block)或直接给父元素一个relative定位,然后根据包含块通过设置top,right,bottom,left属性值进行偏移。看起来，这是很常见的做法，但盲目的如此”套公式“，只能说你对absolute的理解不到家。</p>
 <a id="more"></a>
 
 <h2 id="何所谓“依赖”"><a href="#何所谓“依赖”" class="headerlink" title="何所谓“依赖”"></a>何所谓“依赖”</h2><p>所谓“依赖”，指的是绝对定位元素需要找到包含块，然后”依赖“包含块进行偏移或格式化元素的宽高。  </p>
@@ -150,7 +150,8 @@
 </li>
 <li>代码实现：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <pre><code class="css"></code></pre>
-<iframe src="https://ascodelife.github.io/demo/frontend/absolute-positioning-without-dependence/demo1.html" width=100%></iframe></li>
+</li>
+<li>眼见为实<iframe src="https://ascodelife.github.io/demo/frontend/absolute-positioning-without-dependence/demo1.html" width=100%></iframe></li>
 </ol>
 
         
