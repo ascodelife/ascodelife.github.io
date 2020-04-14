@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        .grandfather-clock-container {
+            border: 10px solid chocolate;
+            width: 320px;
+        }
+        
+        .separator {
+            border-bottom: 10px solid chocolate;
+        }
+        
+        .grandfather-clock-container,
+        #clock,
+        #simple-pendulum,
+        #line,
+        #ball {
+            margin: 0 auto;
+        }
+        
+        #clock {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 1px solid;
+            font-size: 20px;
+            position: relative;
+        }
+        /* 所有刻度枚举*/
+        
+        .scale>div {
+            position: absolute;
+            height: 5px;
+            width: 1px;
+            left: 50%;
+            background-color: black;
+            /* 中心Y偏移=时钟高度/2 */
+            transform-origin: 0 150px;
+        }
+        
+        .scale>div:nth-child(5n+1) {
+            height: 10px;
+        }
+        
+        .math>div {
+            position: absolute;
+            line-height: 20px;
+            width: 20px;
+            text-align: center;
+        }
+        /* 所有数字枚举*/
+        
+        .math1 {
+            /* left=时钟半径+(时钟半径-刻度高度)*cos(-60°)-盒子宽度/2  */
+            left: 205px;
+            /* top=时钟半径+(时钟半径-刻度高度)*sin(-60°)-行高/2 */
+            top: 27.41px;
+        }
+        
+        .math2 {
+            /* left=时钟半径+(时钟半径-刻度高度)*cos(-30°)盒子宽度/2   */
+            left: 252.58px;
+            /* top=时钟半径+(时钟半径-刻度高度)*sin(-60°)-行高/2  */
+            top: 75px;
+        }
+        
+        .math3 {
+            /* left=时钟半径+(时钟半径-刻度高度)*cos(0°)-盒子宽度/2   */
+            left: 270px;
+            /* top=时钟半径+(时钟半径-刻度高度)*sin(0°)-行高/2  */
+            top: 140px;
+        }
+        
+        .math4 {
+            /* left=时钟半径+(时钟半径-刻度高度)*cos(30°)-盒子宽度/2   */
+            left: 252.58px;
+            /* top=时钟半径+(时钟半径-刻度高度)*sin(30°)-行高/2  */
+            top: 205px;
+        }
+        
+        .math5 {
+            /* left=时钟半径+(时钟半径-刻度高度)*cos(60°)-盒子宽度/2  */
+            left: 205px;
+            /* top=时钟半径+(时钟半径-刻度高度)*sin(60°)-行高/2   */
+            top: 252.58px;
+        }
+        
+        .math6 {
+            /* left=时钟半径+(时钟半径-刻度高度)*cos(90°)-盒子宽度/2  */
+            left: 140px;
+            /* top=时钟半径+(时钟半径-刻度高度)*sin(90°)-行高/2   */
+            top: 270px;
+        }
+        
+        .math7 {
+            /* left=时钟半径+(时钟半径-刻度高度)*cos(120°)-盒子宽度/2  */
+            left: 75px;
+            /* top=时钟半径+(时钟半径-刻度高度)*sin(120°)-行高/2   */
+            top: 252.58px;
+        }
+        
+        .math8 {
+            /* left=时钟半径+(时钟半径-刻度高度)*cos(120°)-盒子宽度/2  */
+            left: 27.41px;
+            /* top=时钟半径+(时钟半径-刻度高度)*sin(150°)-行高/2   */
+            top: 205px;
+        }
+        
+        .math9 {
+            /* left=时钟半径+(时钟半径-刻度高度)*cos(180°)-盒子宽度/2  */
+            left: 10px;
+            /* top=时钟半径+(时钟半径-刻度高度)*sin(180°)-行高/2 */
+            top: 140px;
+        }
+        
+        .math10 {
+            /* left=时钟半径+(时钟半径-刻度高度)*cos(210°)-盒子宽度/2 */
+            left: 27.41px;
+            /* top=时钟半径+(时钟半径-刻度高度)*sin(210°)-行高/2  */
+            top: 75px;
+        }
+        
+        .math11 {
+            /* left=时钟半径+(时钟半径-刻度高度)*cos(240°)-盒子宽度/2 */
+            left: 75px;
+            /* top=时钟半径+(时钟半径-刻度高度)*sin(240°)-行高/2  */
+            top: 27.41px;
+        }
+        
+        .math12 {
+            /* left=时钟半径+(时钟半径-刻度高度)*cos(270°)-盒子宽度/2  */
+            left: 140px;
+            /* top=时钟半径+(时钟半径-刻度高度)*sin(270°)-行高/2  */
+            top: 10px;
+        }
+        
+        .pointer>div,
+        .center {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+        }
+        
+        .center {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: coral;
+        }
+        
+        .pointer>div {
+            animation-name: rotation;
+            animation-iteration-count: infinite;
+        }
+        
+        @keyframes rotation {
+            from {
+                transform: rotate(0deg) translateY(-50%);
+            }
+            to {
+                transform: rotate(360deg) translateY(-50%);
+            }
+        }
+        
+        .hour-hand {
+            width: 8px;
+            height: 40px;
+            background-color: black;
+            animation: 216000s linear;
+        }
+        
+        .minute-hand {
+            width: 4px;
+            height: 80px;
+            background-color: black;
+            animation: 3600s linear;
+        }
+        
+        .second-hand {
+            width: 2px;
+            height: 130px;
+            background-color: red;
+            animation: 60s steps(60, end);
+        }
+        
+        @keyframes swing {
+            from {
+                transform: rotate(30deg);
+            }
+            to {
+                transform: rotate(-30deg);
+            }
+        }
+        
+        #simple-pendulum {
+            animation: swing .5s ease-in-out infinite alternate;
+            width: 30px;
+            transform-origin: center top;
+        }
+        
+        #ball {
+            height: 30px;
+            width: 30px;
+            background: red;
+            border-radius: 100%;
+        }
+        
+        #line {
+            height: 200px;
+            width: 10px;
+            background: yellow;
+        }
+    </style>
+    <title>clock</title>
+</head>
+
+<body>
+    <div class="grandfather-clock-container">
+        <div id="clock">
+            <div class="center"></div>
+            <div class="scale">
+                <div class='scale0' style="transform: rotate(0deg);"></div>
+                <div class='scale1' style="transform: rotate(6deg);"></div>
+                <div class='scale2' style="transform: rotate(12deg);"></div>
+                <div class='scale3' style="transform: rotate(18deg);"></div>
+                <div class='scale4' style="transform: rotate(24deg);"></div>
+                <div class='scale5' style="transform: rotate(30deg);"></div>
+                <div class='scale6' style="transform: rotate(36deg);"></div>
+                <div class='scale7' style="transform: rotate(42deg);"></div>
+                <div class='scale8' style="transform: rotate(48deg);"></div>
+                <div class='scale9' style="transform: rotate(54deg);"></div>
+                <div class='scale10' style="transform: rotate(60deg);"></div>
+                <div class='scale11' style="transform: rotate(66deg);"></div>
+                <div class='scale12' style="transform: rotate(72deg);"></div>
+                <div class='scale13' style="transform: rotate(78deg);"></div>
+                <div class='scale14' style="transform: rotate(84deg);"></div>
+                <div class='scale15' style="transform: rotate(90deg);"></div>
+                <div class='scale16' style="transform: rotate(96deg);"></div>
+                <div class='scale17' style="transform: rotate(102deg);"></div>
+                <div class='scale18' style="transform: rotate(108deg);"></div>
+                <div class='scale19' style="transform: rotate(114deg);"></div>
+                <div class='scale20' style="transform: rotate(120deg);"></div>
+                <div class='scale21' style="transform: rotate(126deg);"></div>
+                <div class='scale22' style="transform: rotate(132deg);"></div>
+                <div class='scale23' style="transform: rotate(138deg);"></div>
+                <div class='scale24' style="transform: rotate(144deg);"></div>
+                <div class='scale25' style="transform: rotate(150deg);"></div>
+                <div class='scale26' style="transform: rotate(156deg);"></div>
+                <div class='scale27' style="transform: rotate(162deg);"></div>
+                <div class='scale28' style="transform: rotate(168deg);"></div>
+                <div class='scale29' style="transform: rotate(174deg);"></div>
+                <div class='scale30' style="transform: rotate(180deg);"></div>
+                <div class='scale31' style="transform: rotate(186deg);"></div>
+                <div class='scale32' style="transform: rotate(192deg);"></div>
+                <div class='scale33' style="transform: rotate(198deg);"></div>
+                <div class='scale34' style="transform: rotate(204deg);"></div>
+                <div class='scale35' style="transform: rotate(210deg);"></div>
+                <div class='scale36' style="transform: rotate(216deg);"></div>
+                <div class='scale37' style="transform: rotate(222deg);"></div>
+                <div class='scale38' style="transform: rotate(228deg);"></div>
+                <div class='scale39' style="transform: rotate(234deg);"></div>
+                <div class='scale40' style="transform: rotate(240deg);"></div>
+                <div class='scale41' style="transform: rotate(246deg);"></div>
+                <div class='scale42' style="transform: rotate(252deg);"></div>
+                <div class='scale43' style="transform: rotate(258deg);"></div>
+                <div class='scale44' style="transform: rotate(264deg);"></div>
+                <div class='scale45' style="transform: rotate(270deg);"></div>
+                <div class='scale46' style="transform: rotate(276deg);"></div>
+                <div class='scale47' style="transform: rotate(282deg);"></div>
+                <div class='scale48' style="transform: rotate(288deg);"></div>
+                <div class='scale49' style="transform: rotate(294deg);"></div>
+                <div class='scale50' style="transform: rotate(300deg);"></div>
+                <div class='scale51' style="transform: rotate(306deg);"></div>
+                <div class='scale52' style="transform: rotate(312deg);"></div>
+                <div class='scale53' style="transform: rotate(318deg);"></div>
+                <div class='scale54' style="transform: rotate(324deg);"></div>
+                <div class='scale55' style="transform: rotate(330deg);"></div>
+                <div class='scale56' style="transform: rotate(336deg);"></div>
+                <div class='scale57' style="transform: rotate(342deg);"></div>
+                <div class='scale58' style="transform: rotate(348deg);"></div>
+                <div class='scale59' style="transform: rotate(354deg);"></div>
+            </div>
+            <div class="math">
+                <div class="math1">1</div>
+                <div class="math2">2</div>
+                <div class="math3">3</div>
+                <div class="math4">4</div>
+                <div class="math5">5</div>
+                <div class="math6">6</div>
+                <div class="math7">7</div>
+                <div class="math8">8</div>
+                <div class="math9">9</div>
+                <div class="math10">10</div>
+                <div class="math11">11</div>
+                <div class="math12">12</div>
+            </div>
+            <div class="pointer">
+                <div class="hour-hand"></div>
+                <div class="minute-hand"></div>
+                <div class="second-hand"></div>
+            </div>
+
+        </div>
+        <div class="separator"></div>
+        <div id="simple-pendulum">
+            <div id="line"></div>
+            <div id="ball"></div>
+        </div>
+    </div>
+
+</body>
+
+</html>
