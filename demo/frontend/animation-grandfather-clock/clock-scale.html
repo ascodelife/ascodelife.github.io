@@ -16,11 +16,15 @@
         .scale>div {
             position: absolute;
             height: 5px;
-            width: 1px;
+            width: 2px;
             left: 50%;
             background-color: black;
             /* 中心Y偏移=时钟高度/2 */
             transform-origin: 0 150px;
+        }
+        
+        .scale>div:nth-child(5n+1) {
+            height: 10px;
         }
         
         .math>div {
@@ -36,6 +40,13 @@
             /* top=时钟半径+(时钟半径-刻度高度)*sin(-60°)-行高/2 */
             top: 27.41px;
         }
+        
+        .math12 {
+            /* left=时钟半径+(时钟半径-刻度高度)*cos(270°)-盒子宽度/2  */
+            left: 140px;
+            /* top=时钟半径+(时钟半径-刻度高度)*sin(270°)-行高/2  */
+            top: 10px;
+        }
     </style>
     <title>clock</title>
 </head>
@@ -43,10 +54,16 @@
 <body>
     <div id="clock">
         <div class="scale">
+            <div class='scale0' style="transform: rotate(0deg);"></div>
+            <div class='scale1' style="transform: rotate(6deg);"></div>
+            <div class='scale2' style="transform: rotate(12deg);"></div>
+            <div class='scale3' style="transform: rotate(18deg);"></div>
+            <div class='scale4' style="transform: rotate(24deg);"></div>
             <div class='scale5' style="transform: rotate(30deg);"></div>
         </div>
         <div class="math">
             <div class="math1">1</div>
+            <div class="math12">12</div>
         </div>
     </div>
 </body>
