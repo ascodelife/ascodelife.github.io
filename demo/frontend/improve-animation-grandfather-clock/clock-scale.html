@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        #clock {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 1px solid;
+            font-size: 20px;
+            position: relative;
+        }
+        
+        .scale>div {
+            position: absolute;
+            height: 5px;
+            width: 2px;
+            left: 50%;
+            background-color: black;
+            /* 中心Y偏移=时钟高度/2 */
+            transform-origin: 0 150px;
+        }
+        
+        .scale>div:nth-child(5n+1) {
+            height: 10px;
+        }
+        
+        .scale>div:nth-child(5n+1)::before {
+            /* 设置为块级元素，使其宽度可更改 */
+            display: block;
+            /* 文本居中显示 */
+            text-align: center;
+            /* 设置一个足够大的宽度，至少大于字体宽度 */
+            width: 20px;
+            /* 让元素向左偏移宽度的一半，使得字体与刻度线对齐 */
+            margin-left: -10px;
+        }
+        
+        .scale>div:nth-child(1)::before {
+            content: '12';
+            transform: rotate(0deg);
+        }
+        
+        .scale>div:nth-child(6)::before {
+            content: '1';
+            transform: rotate(-30deg);
+        }
+    </style>
+    <title>clock</title>
+</head>
+
+<body>
+    <div id="clock">
+        <div class="scale">
+            <div class='scale0' style="transform: rotate(0deg);"></div>
+            <div class='scale1' style="transform: rotate(6deg);"></div>
+            <div class='scale2' style="transform: rotate(12deg);"></div>
+            <div class='scale3' style="transform: rotate(18deg);"></div>
+            <div class='scale4' style="transform: rotate(24deg);"></div>
+            <div class='scale5' style="transform: rotate(30deg);"></div>
+        </div>
+    </div>
+</body>
+
+</html>

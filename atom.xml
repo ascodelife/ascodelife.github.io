@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ascodelife.github.io/"/>
-  <updated>2020-04-14T17:46:01.429Z</updated>
+  <updated>2020-04-19T06:12:47.205Z</updated>
   <id>https://ascodelife.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>学习笔记——摆钟的改进</title>
+    <link href="https://ascodelife.github.io/2020/04/17/improve-animation-grandfather-clock/"/>
+    <id>https://ascodelife.github.io/2020/04/17/improve-animation-grandfather-clock/</id>
+    <published>2020-04-17T10:34:01.000Z</published>
+    <updated>2020-04-19T06:12:47.205Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>此文章主要针对之前已经实现的摆钟进行改进，使代码更简洁更优美。</p><a id="more"></a><h2 id="改进点"><a href="#改进点" class="headerlink" title="改进点"></a>改进点</h2><p>在上次的<a href="/animation-grandfather-clock.html">文章</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;此文章主要针对之前已经实现的摆钟进行改进，使代码更简洁更优美。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="front-end" scheme="https://ascodelife.github.io/categories/front-end/"/>
+    
+    
+      <category term="html&amp;css" scheme="https://ascodelife.github.io/tags/html-css/"/>
+    
+      <category term="css3" scheme="https://ascodelife.github.io/tags/css3/"/>
+    
+      <category term="学习笔记" scheme="https://ascodelife.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="animation" scheme="https://ascodelife.github.io/tags/animation/"/>
+    
+  </entry>
   
   <entry>
     <title>学习笔记——纯css3动画实现可显示时间的摆钟</title>
