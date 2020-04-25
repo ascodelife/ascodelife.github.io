@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>学习笔记——从预编译出发看闭包 | Welcome to My Blog</title>
+    <meta name="author" content="John Doe" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="前言陆陆续续看过一些对js闭包(closure)，发现对闭包理解一直差点意思。直到学习了js预编译，才恍然大悟，原来从预编译出发看闭包，才能看得更加透彻!预备知识首先，我们得先对预编译进行一些简要地介绍。执行上下文执行上下文可理解为当前的执行环境，与该运行环境相对应。js引擎每进入一个环境就会创建相应的执行上下文，创建执行上下文的过程中。预编译是什么大家都知道，javascript是解释性语言，主要特点为解释一行执行一行。而在js的执行分为3个阶段语法分析：script标签加..." />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+
+    
+    <link rel="alternate" href="/atom.xml" title="Welcome to My Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon.ico">
+    
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/fonts/icomoon.eot?q628ml");
+        src: url("/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!--[if lt IE 9]>
+    <style type="text/css">
+    .nav-inner {top:0;}
+    .author-meta {position:static;top:0;}
+    .search-form {height:36px;}
+    </style>
+    <script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <![endif]-->
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+
+    <main class="app">
+        <header id="header" class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">Welcome to My Blog</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首页</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/front-end">
+                <span class="nav-text">前端</span>
+            </a>
+        
+            <a class="nav-item" href="/tags">
+                <span class="nav-text">标签</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">归档</span>
+            </a>
+        
+            <a class="nav-item" href="/atom.xml">
+                <span class="nav-text">订阅</span>
+            </a>
+        
+            <a class="nav-item" href="/about">
+                <span class="nav-text">关于</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="https://ascodelife.github.io"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#预备知识"><span class="toc-number">2.</span> <span class="toc-text">预备知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#执行上下文"><span class="toc-number">2.1.</span> <span class="toc-text">执行上下文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#预编译是什么"><span class="toc-number">2.2.</span> <span class="toc-text">预编译是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#预编译例子分析"><span class="toc-number">2.3.</span> <span class="toc-text">预编译例子分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包实例分析"><span class="toc-number">3.</span> <span class="toc-text">闭包实例分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#例子一"><span class="toc-number">3.1.</span> <span class="toc-text">例子一</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后记"><span class="toc-number">4.</span> <span class="toc-text">后记</span></a></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper" style="max-width: 800px">
+                <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            学习笔记——从预编译出发看闭包
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://ascodelife.github.io/2020/04/24/closure/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-04-24T02:53:45.000Z" itemprop="datePublished">2020-04-24</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/javascript/" rel="tag">javascript</a>, <a class="article-tag-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>陆陆续续看过一些对js闭包(closure)，发现对闭包理解一直差点意思。直到学习了js预编译，才恍然大悟，原来从预编译出发看闭包，才能看得更加透彻!</p>
+<a id="more"></a>
+
+<h2 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h2><p>首先，我们得先对预编译进行一些简要地介绍。</p>
+<h3 id="执行上下文"><a href="#执行上下文" class="headerlink" title="执行上下文"></a>执行上下文</h3><p>执行上下文可理解为当前的执行环境，与该运行环境相对应。js引擎每进入一个环境就会创建相应的执行上下文，创建执行上下文的过程中。<br><img src="/demo/frontend/closure/execution-context.png" alt="avatar"></p>
+<h3 id="预编译是什么"><a href="#预编译是什么" class="headerlink" title="预编译是什么"></a>预编译是什么</h3><p>大家都知道，javascript是解释性语言，主要特点为解释一行执行一行。<br>而在js的执行分为3个阶段</p>
+<ol>
+<li><strong>语法分析</strong>：script标签加载即开始语法分析，分析整个标签内的语法错误。无错误即进入预编译阶段。</li>
+<li><strong>预编译</strong>： </li>
+<li>解释执行</li>
+</ol>
+<ul>
+<li>语法分析会在代码执行前对代码进行通篇检查，以排除一些低级错误</li>
+<li>预编译发生在代码执行的前一刻</li>
+<li>解释执行就是执行代码</li>
+</ul>
+<p><strong>预编译的作用：</strong>  </p>
+<ol>
+<li>函数声明整体提升</li>
+<li>变量声明提升  </li>
+</ol>
+<p><strong>预编译四部曲：</strong>  </p>
+<ol>
+<li>创建AO(Activation object)对象</li>
+<li>找形参和变量声明，将变量声明的名（即变量和形参名）作为AO属性名，值为undefined</li>
+<li>将实参和形参统一</li>
+<li>在函数体里面找函数声明，值赋予函数体（<strong><em>注意此处的函数声明要区别于函数表达式）</em></strong><h3 id="预编译例子分析"><a href="#预编译例子分析" class="headerlink" title="预编译例子分析"></a>预编译例子分析</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//例题</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(a);</span><br><span class="line">        <span class="keyword">var</span> a = <span class="number">123</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(a);</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">        <span class="built_in">console</span>.log(a);</span><br><span class="line">        <span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">        <span class="built_in">console</span>.log(b);</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">d</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">fn(<span class="number">1</span>);</span><br></pre></td></tr></table></figure></li>
+<li>创建AO(Activation object)对象<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AO = &#123;&#125;</span><br></pre></td></tr></table></figure></li>
+<li>找形参和变量声明，将变量声明的名（即变量和形参名）作为AO属性名，值为undefined<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">AO = &#123;</span><br><span class="line">    a:<span class="literal">undefined</span>,<span class="comment">//形参</span></span><br><span class="line">    b:<span class="literal">undefined</span>,<span class="comment">//变量声明</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>将实参和形参统一<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">AO = &#123;</span><br><span class="line">    a:<span class="number">1</span>,<span class="comment">//将实参值赋给形参</span></span><br><span class="line">    b:<span class="literal">undefined</span>,<span class="comment">//变量声明</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>在函数体里面找函数声明，值赋予函数体<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">AO = &#123;</span><br><span class="line">    a:<span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">    b:<span class="literal">undefined</span>,<span class="comment">//变量声明</span></span><br><span class="line">    d:<span class="function"><span class="keyword">function</span> <span class="title">d</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+为了更加直观地表述这个过程，我们上述代码写成下面的等价形式<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//例题</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">d</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">        <span class="keyword">var</span> a;</span><br><span class="line">        <span class="built_in">console</span>.log(a);</span><br><span class="line">        a = <span class="number">123</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(a);</span><br><span class="line">        <span class="built_in">console</span>.log(a);</span><br><span class="line">        <span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;<span class="comment">//注意函数表达式不提升</span></span><br><span class="line">        <span class="built_in">console</span>.log(b);</span><br><span class="line">&#125;</span><br><span class="line">fn(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+由上述代码，我们可以很简单地分析出打印结果为：<br>ƒ a() {}<br>123<br>123<br>ƒ () {}  </li>
+</ol>
+<p><strong>真正的预编译</strong><br><font color=red>多了一个全局的GO{}对象(Global Object):</font><br>即先创建创建GO/AO对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//例题：</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(b);<span class="comment">//undefined;</span></span><br><span class="line">    <span class="keyword">if</span> (a) &#123;</span><br><span class="line">        <span class="keyword">var</span> b = <span class="number">100</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(b);<span class="comment">//undefined</span></span><br><span class="line">    c = <span class="number">234</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(c); <span class="comment">//234;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a;</span><br><span class="line">test();</span><br><span class="line">a = <span class="number">10</span>;</span><br><span class="line"><span class="built_in">console</span>.log(c);  <span class="comment">//234;</span></span><br></pre></td></tr></table></figure>
+<p>预编译阶段</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">GO = &#123;</span><br><span class="line">    a:<span class="literal">undefined</span>,</span><br><span class="line">    c:<span class="literal">undefined</span>,</span><br><span class="line">    test:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通俗来说GO比起AO只是少了实参和形参统一的步骤<br>当执行到函数<code>test</code>时，js预编译创建的AO对象为</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">AO = &#123;</span><br><span class="line">    b:<span class="literal">undefined</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="闭包实例分析"><a href="#闭包实例分析" class="headerlink" title="闭包实例分析"></a>闭包实例分析</h2><p>有了上面的预备知识，我们将举几个经典的闭包例子，从预编译出发来进行分析。</p>
+<h3 id="例子一"><a href="#例子一" class="headerlink" title="例子一"></a>例子一</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> v = <span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> v++</span><br><span class="line">    &#125;</span><br><span class="line">&#125;())</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">    foo()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(foo())</span><br></pre></td></tr></table></figure>
+<p>首先<code>foo</code>是一个立即执行函数，简称IIFE。而<code>foo()</code>则对应返回的函数体<code>()=&gt;{return v++}</code><br>因为使用了<code>let</code>和<code>const</code>声明变量，所以不会存在变量声明提升的情况。所以在执行第一行代码前，我们可以把GO看成是一个没有属性的对象。</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2>
+        
+    </section>
+</article>
+
+
+
+<a id="pagenext" href="/2020/04/22/this/" class="article-next" title="学习笔记——执行上下文与this的指向"><i class="icon-arrow-right"></i></a>
+
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "1f9870ee10de4a49c776",
+        clientSecret: "4e1dfd7a727c9f7594c03820106cf29b925d8dca",
+        repo: "ascodelife.github.io",
+        owner: "ascodelife",
+        admin: ["ascodelife"],
+        id: "2020/04/24/closure",
+        distractionFreeMode: true,
+        title: "学习笔记——从预编译出发看闭包",
+        body: "https://ascodelife.github.io/2020/04/24/closure/",
+        labels: ["学习笔记","javascript"]
+    }).render('comments');
+    </script>
+</div>
+
+
+            </div>
+        </div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?215769f1cefdb7bd4de201ec2a090a89";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
+        
+<script src="/js/scrollspy.min.js"></script>
+
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
+
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
+
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
+    
+
+</body>
+</html>
