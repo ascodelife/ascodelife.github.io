@@ -7,10 +7,10 @@
 
     
 
-    <title>experiment | Welcome to My Blog</title>
+    <title>数据分析原理与实验报告 | Welcome to My Blog</title>
     <meta name="author" content="John Doe" />
     <meta name="keywords" content="" />
-    <meta name="description" content="数据分析原理与实验报告报告人：李俊安学号：19031211423  报告时间：2020年5月1日前言本次报告共分为四个部分： 原理概述代码实现对比实验与分析总结与反思第一部分：原理概述什么是置换检验（Permutation Test）置换检验，是Fisher提出的一种基于大量计算（computationally intensive），利用样本数据的随机排列（置换检验的核心思想，故名Permutation test），进行统计推断的方法。因其对总体分布自由，特别..." />
+    <meta name="description" content="报告人：李俊安学号：19031211423  报告时间：2020年5月1日前言本次报告共分为四个部分： 原理概述代码实现对比实验与分析总结与反思第一部分：原理概述什么是置换检验（Permutation Test）置换检验，是Fisher提出的一种基于大量计算（computationally intensive），利用样本数据的随机排列（置换检验的核心思想，故名Permutation test），进行统计推断的方法。因其对总体分布自由，特别适合用于总体分布未知..." />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 
@@ -97,7 +97,7 @@
         
 
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据分析原理与实验报告"><span class="toc-number">1.</span> <span class="toc-text">数据分析原理与实验报告</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第一部分：原理概述"><span class="toc-number">1.2.</span> <span class="toc-text">第一部分：原理概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二部分：代码实现"><span class="toc-number">1.3.</span> <span class="toc-text">第二部分：代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#代码文件说明"><span class="toc-number">1.3.1.</span> <span class="toc-text">代码文件说明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三部分：对比实验与分析"><span class="toc-number">1.4.</span> <span class="toc-text">第三部分：对比实验与分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#对比实验一"><span class="toc-number">1.4.1.</span> <span class="toc-text">对比实验一</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-实验目的："><span class="toc-number">1.4.1.1.</span> <span class="toc-text">1.实验目的：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-实验参数："><span class="toc-number">1.4.1.2.</span> <span class="toc-text">2.实验参数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-实验结果："><span class="toc-number">1.4.1.3.</span> <span class="toc-text">3.实验结果：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-实验小结："><span class="toc-number">1.4.1.4.</span> <span class="toc-text">4.实验小结：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对比实验二"><span class="toc-number">1.4.2.</span> <span class="toc-text">对比实验二</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-实验目的：-1"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">1.实验目的：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-实验参数：-1"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">2.实验参数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-实验结果：-1"><span class="toc-number">1.4.2.3.</span> <span class="toc-text">3.实验结果：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-实验小结：-1"><span class="toc-number">1.4.2.4.</span> <span class="toc-text">4.实验小结：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对比实验三"><span class="toc-number">1.4.3.</span> <span class="toc-text">对比实验三</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-实验目的：-2"><span class="toc-number">1.4.3.1.</span> <span class="toc-text">1.实验目的：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-实验参数：-2"><span class="toc-number">1.4.3.2.</span> <span class="toc-text">2.实验参数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-实验结果：-2"><span class="toc-number">1.4.3.3.</span> <span class="toc-text">3.实验结果：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-实验小结：-2"><span class="toc-number">1.4.3.4.</span> <span class="toc-text">4.实验小结：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对比实验四"><span class="toc-number">1.4.4.</span> <span class="toc-text">对比实验四</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-实验目的：-3"><span class="toc-number">1.4.4.1.</span> <span class="toc-text">1.实验目的：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-实验参数：-3"><span class="toc-number">1.4.4.2.</span> <span class="toc-text">2.实验参数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-实验结果：-3"><span class="toc-number">1.4.4.3.</span> <span class="toc-text">3.实验结果：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-实验小结：-3"><span class="toc-number">1.4.4.4.</span> <span class="toc-text">4.实验小结：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对比实验五"><span class="toc-number">1.4.5.</span> <span class="toc-text">对比实验五</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-实验目的：-4"><span class="toc-number">1.4.5.1.</span> <span class="toc-text">1.实验目的：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-实验参数：-4"><span class="toc-number">1.4.5.2.</span> <span class="toc-text">2.实验参数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-实验结果：-4"><span class="toc-number">1.4.5.3.</span> <span class="toc-text">3.实验结果：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-实验小结：-4"><span class="toc-number">1.4.5.4.</span> <span class="toc-text">4.实验小结：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对比实验六"><span class="toc-number">1.4.6.</span> <span class="toc-text">对比实验六</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-实验目的：-5"><span class="toc-number">1.4.6.1.</span> <span class="toc-text">1.实验目的：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-实验参数：-5"><span class="toc-number">1.4.6.2.</span> <span class="toc-text">2.实验参数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-实验结果：-5"><span class="toc-number">1.4.6.3.</span> <span class="toc-text">3.实验结果：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-实验小结：-5"><span class="toc-number">1.4.6.4.</span> <span class="toc-text">4.实验小结：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对比实验七"><span class="toc-number">1.4.7.</span> <span class="toc-text">对比实验七</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-实验目的：-6"><span class="toc-number">1.4.7.1.</span> <span class="toc-text">1.实验目的：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-实验参数：-6"><span class="toc-number">1.4.7.2.</span> <span class="toc-text">2.实验参数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-实验结果：-6"><span class="toc-number">1.4.7.3.</span> <span class="toc-text">3.实验结果：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-实验小结：-6"><span class="toc-number">1.4.7.4.</span> <span class="toc-text">4.实验小结：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对比实验八"><span class="toc-number">1.4.8.</span> <span class="toc-text">对比实验八</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-实验目的：-7"><span class="toc-number">1.4.8.1.</span> <span class="toc-text">1.实验目的：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-实验参数：-7"><span class="toc-number">1.4.8.2.</span> <span class="toc-text">2.实验参数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-实验结果：-7"><span class="toc-number">1.4.8.3.</span> <span class="toc-text">3.实验结果：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-实验小结：-7"><span class="toc-number">1.4.8.4.</span> <span class="toc-text">4.实验小结：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对比实验九"><span class="toc-number">1.4.9.</span> <span class="toc-text">对比实验九</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-实验目的：-8"><span class="toc-number">1.4.9.1.</span> <span class="toc-text">1.实验目的：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-实验参数：-8"><span class="toc-number">1.4.9.2.</span> <span class="toc-text">2.实验参数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-实验结果：-8"><span class="toc-number">1.4.9.3.</span> <span class="toc-text">3.实验结果：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-实验小结：-8"><span class="toc-number">1.4.9.4.</span> <span class="toc-text">4.实验小结：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第四部分：总结与反思"><span class="toc-number">1.5.</span> <span class="toc-text">第四部分：总结与反思</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第一部分：原理概述"><span class="toc-number">2.</span> <span class="toc-text">第一部分：原理概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二部分：代码实现"><span class="toc-number">3.</span> <span class="toc-text">第二部分：代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#代码文件说明"><span class="toc-number">3.1.</span> <span class="toc-text">代码文件说明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三部分：对比实验与分析"><span class="toc-number">4.</span> <span class="toc-text">第三部分：对比实验与分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#对比实验一"><span class="toc-number">4.1.</span> <span class="toc-text">对比实验一</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-实验目的："><span class="toc-number">4.1.1.</span> <span class="toc-text">1.实验目的：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-实验参数："><span class="toc-number">4.1.2.</span> <span class="toc-text">2.实验参数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-实验结果："><span class="toc-number">4.1.3.</span> <span class="toc-text">3.实验结果：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-实验小结："><span class="toc-number">4.1.4.</span> <span class="toc-text">4.实验小结：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对比实验二"><span class="toc-number">4.2.</span> <span class="toc-text">对比实验二</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-实验目的：-1"><span class="toc-number">4.2.1.</span> <span class="toc-text">1.实验目的：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-实验参数：-1"><span class="toc-number">4.2.2.</span> <span class="toc-text">2.实验参数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-实验结果：-1"><span class="toc-number">4.2.3.</span> <span class="toc-text">3.实验结果：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-实验小结：-1"><span class="toc-number">4.2.4.</span> <span class="toc-text">4.实验小结：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对比实验三"><span class="toc-number">4.3.</span> <span class="toc-text">对比实验三</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-实验目的：-2"><span class="toc-number">4.3.1.</span> <span class="toc-text">1.实验目的：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-实验参数：-2"><span class="toc-number">4.3.2.</span> <span class="toc-text">2.实验参数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-实验结果：-2"><span class="toc-number">4.3.3.</span> <span class="toc-text">3.实验结果：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-实验小结：-2"><span class="toc-number">4.3.4.</span> <span class="toc-text">4.实验小结：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对比实验四"><span class="toc-number">4.4.</span> <span class="toc-text">对比实验四</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-实验目的：-3"><span class="toc-number">4.4.1.</span> <span class="toc-text">1.实验目的：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-实验参数：-3"><span class="toc-number">4.4.2.</span> <span class="toc-text">2.实验参数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-实验结果：-3"><span class="toc-number">4.4.3.</span> <span class="toc-text">3.实验结果：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-实验小结：-3"><span class="toc-number">4.4.4.</span> <span class="toc-text">4.实验小结：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对比实验五"><span class="toc-number">4.5.</span> <span class="toc-text">对比实验五</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-实验目的：-4"><span class="toc-number">4.5.1.</span> <span class="toc-text">1.实验目的：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-实验参数：-4"><span class="toc-number">4.5.2.</span> <span class="toc-text">2.实验参数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-实验结果：-4"><span class="toc-number">4.5.3.</span> <span class="toc-text">3.实验结果：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-实验小结：-4"><span class="toc-number">4.5.4.</span> <span class="toc-text">4.实验小结：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对比实验六"><span class="toc-number">4.6.</span> <span class="toc-text">对比实验六</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-实验目的：-5"><span class="toc-number">4.6.1.</span> <span class="toc-text">1.实验目的：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-实验参数：-5"><span class="toc-number">4.6.2.</span> <span class="toc-text">2.实验参数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-实验结果：-5"><span class="toc-number">4.6.3.</span> <span class="toc-text">3.实验结果：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-实验小结：-5"><span class="toc-number">4.6.4.</span> <span class="toc-text">4.实验小结：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对比实验七"><span class="toc-number">4.7.</span> <span class="toc-text">对比实验七</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-实验目的：-6"><span class="toc-number">4.7.1.</span> <span class="toc-text">1.实验目的：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-实验参数：-6"><span class="toc-number">4.7.2.</span> <span class="toc-text">2.实验参数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-实验结果：-6"><span class="toc-number">4.7.3.</span> <span class="toc-text">3.实验结果：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-实验小结：-6"><span class="toc-number">4.7.4.</span> <span class="toc-text">4.实验小结：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对比实验八"><span class="toc-number">4.8.</span> <span class="toc-text">对比实验八</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-实验目的：-7"><span class="toc-number">4.8.1.</span> <span class="toc-text">1.实验目的：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-实验参数：-7"><span class="toc-number">4.8.2.</span> <span class="toc-text">2.实验参数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-实验结果：-7"><span class="toc-number">4.8.3.</span> <span class="toc-text">3.实验结果：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-实验小结：-7"><span class="toc-number">4.8.4.</span> <span class="toc-text">4.实验小结：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对比实验九"><span class="toc-number">4.9.</span> <span class="toc-text">对比实验九</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-实验目的：-8"><span class="toc-number">4.9.1.</span> <span class="toc-text">1.实验目的：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-实验参数：-8"><span class="toc-number">4.9.2.</span> <span class="toc-text">2.实验参数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-实验结果：-8"><span class="toc-number">4.9.3.</span> <span class="toc-text">3.实验结果：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-实验小结：-8"><span class="toc-number">4.9.4.</span> <span class="toc-text">4.实验小结：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第四部分：总结与反思"><span class="toc-number">5.</span> <span class="toc-text">第四部分：总结与反思</span></a></li></ol>
         
     </div>
 </aside>
@@ -111,7 +111,7 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            experiment
+            数据分析原理与实验报告
         </h1>
         
         <div class="article-meta clearfix">
@@ -129,11 +129,12 @@
     
     <section class="article-body markdown-body">
         
-        <h1 id="数据分析原理与实验报告"><a href="#数据分析原理与实验报告" class="headerlink" title="数据分析原理与实验报告"></a>数据分析原理与实验报告</h1><ul>
+        <ul>
 <li>报告人：李俊安</li>
 <li>学号：19031211423  </li>
-<li>报告时间：2020年5月1日<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2>本次报告共分为四个部分： </li>
+<li>报告时间：2020年5月1日</li>
 </ul>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本次报告共分为四个部分： </p>
 <ol>
 <li><a href="#1"><strong>原理概述</strong></a></li>
 <li><a href="#2"><strong>代码实现</strong></a></li>
@@ -253,12 +254,12 @@
     </tr>
 </table>
 
-<p><strong>敏感度与准确度折线图</strong>：<br><img src="D:%5Cexperiment%5Cpic%5C1%5C1%E6%8A%98%E7%BA%BF%E5%9B%BE.png" alt="avatar"></p>
+<p><strong>敏感度与准确度折线图</strong>：<br><img src="pic%5C1%5C1%E6%8A%98%E7%BA%BF%E5%9B%BE.png" alt="avatar"></p>
 <p><strong>变异位点频次图</strong>：</p>
 <ul>
-<li>对比实验1.1<br><img src="D:%5Cexperiment%5Cpic%5C1%5C1.1%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
-<li>对比实验1.2<br><img src="D:%5Cexperiment%5Cpic%5C1%5C1.2%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
-<li>对比实验1.3<br><img src="D:%5Cexperiment%5Cpic%5C1%5C1.3%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验1.1<br><img src="pic%5C1%5C1.1%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验1.2<br><img src="pic%5C1%5C1.2%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验1.3<br><img src="pic%5C1%5C1.3%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
 </ul>
 <h4 id="4-实验小结："><a href="#4-实验小结：" class="headerlink" title="4.实验小结："></a>4.实验小结：</h4><p>从上述折线图和频次图可以看出，更改置换次数对实际结果影响比较轻微。当置换次数越大时，折线图能能看到敏感度有下降的趋势。<br>而频次图中也表现出了随着置换次数的增大，波峰更加紧密。</p>
 <h3 id="对比实验二"><a href="#对比实验二" class="headerlink" title="对比实验二"></a>对比实验二</h3><h4 id="1-实验目的：-1"><a href="#1-实验目的：-1" class="headerlink" title="1.实验目的："></a>1.实验目的：</h4><p>通过修改<strong>实验次数</strong>，来比较该参数对实验结果的影响。</p>
@@ -358,13 +359,13 @@
     </tr>
 </table>
 
-<p><strong>敏感度与准确度折线图</strong>：<br><img src="D:%5Cexperiment%5Cpic%5C2%5C2%E6%8A%98%E7%BA%BF%E5%9B%BE.png" alt="avatar"></p>
+<p><strong>敏感度与准确度折线图</strong>：<br><img src="pic%5C2%5C2%E6%8A%98%E7%BA%BF%E5%9B%BE.png" alt="avatar"></p>
 <p><strong>变异位点频次图</strong>：</p>
 <ul>
-<li>对比实验2.1<br><img src="D:%5Cexperiment%5Cpic%5C2%5C2.1%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
-<li>对比实验2.2<br><img src="D:%5Cexperiment%5Cpic%5C2%5C2.2%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
-<li>对比实验2.3<br><img src="D:%5Cexperiment%5Cpic%5C2%5C2.3%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
-<li>对比实验2.4<br><img src="D:%5Cexperiment%5Cpic%5C2%5C2.4%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验2.1<br><img src="pic%5C2%5C2.1%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验2.2<br><img src="pic%5C2%5C2.2%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验2.3<br><img src="pic%5C2%5C2.3%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验2.4<br><img src="pic%5C2%5C2.4%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
 </ul>
 <h4 id="4-实验小结：-1"><a href="#4-实验小结：-1" class="headerlink" title="4.实验小结："></a>4.实验小结：</h4><p>注意到，当实验次数仅为1时，数据比较极端，随着实验次数增大，从折线图中我们看不到很明显的变化。但是从频次图中我们可以清楚地看到，当实验次数增加时，波峰变得更加紧密了。</p>
 <h3 id="对比实验三"><a href="#对比实验三" class="headerlink" title="对比实验三"></a>对比实验三</h3><h4 id="1-实验目的：-2"><a href="#1-实验目的：-2" class="headerlink" title="1.实验目的："></a>1.实验目的：</h4><p>通过修改<strong>随机噪声区间</strong>，来比较该参数对实验结果的影响。</p>
@@ -464,13 +465,13 @@
     </tr>
 </table>
 
-<p><strong>敏感度与准确度折线图</strong>：<br><img src="D:%5Cexperiment%5Cpic%5C3%5C3%E6%8A%98%E7%BA%BF%E5%9B%BE.png" alt="avatar"></p>
+<p><strong>敏感度与准确度折线图</strong>：<br><img src="pic%5C3%5C3%E6%8A%98%E7%BA%BF%E5%9B%BE.png" alt="avatar"></p>
 <p><strong>变异位点频次图</strong>：</p>
 <ul>
-<li>对比实验3.1<br><img src="D:%5Cexperiment%5Cpic%5C3%5C3.1%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
-<li>对比实验3.2<br><img src="D:%5Cexperiment%5Cpic%5C3%5C3.2%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
-<li>对比实验3.3<br><img src="D:%5Cexperiment%5Cpic%5C3%5C3.3%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
-<li>对比实验3.4<br><img src="D:%5Cexperiment%5Cpic%5C3%5C3.4%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验3.1<br><img src="pic%5C3%5C3.1%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验3.2<br><img src="pic%5C3%5C3.2%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验3.3<br><img src="pic%5C3%5C3.3%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验3.4<br><img src="pic%5C3%5C3.4%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
 </ul>
 <h4 id="4-实验小结：-2"><a href="#4-实验小结：-2" class="headerlink" title="4.实验小结："></a>4.实验小结：</h4><p>对比实验3.1，3.2，3.3，当噪声区间长度一定时，当其越靠近1时，折线图上反应出了敏感度下降；而从频次图中可以看出，噪声越靠近1时处于中间变异基因位点就越难分辨，说明可能噪声干扰随之增大。<br>对比实验3.3与3.4，当噪声区间增大时，对实验结果的影响较小。</p>
 <h3 id="对比实验四"><a href="#对比实验四" class="headerlink" title="对比实验四"></a>对比实验四</h3><h4 id="1-实验目的：-3"><a href="#1-实验目的：-3" class="headerlink" title="1.实验目的："></a>1.实验目的：</h4><p>通过修改<strong>阈值</strong>，来比较该参数对实验结果的影响。</p>
@@ -570,13 +571,13 @@
     </tr>
 </table>
 
-<p><strong>敏感度与准确度折线图</strong>：<br><img src="D:%5Cexperiment%5Cpic%5C4%5C4%E6%8A%98%E7%BA%BF%E5%9B%BE.png" alt="avatar"></p>
+<p><strong>敏感度与准确度折线图</strong>：<br><img src="pic%5C4%5C4%E6%8A%98%E7%BA%BF%E5%9B%BE.png" alt="avatar"></p>
 <p><strong>变异位点频次图</strong>：</p>
 <ul>
-<li>对比实验4.1<br><img src="D:%5Cexperiment%5Cpic%5C4%5C4.1%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
-<li>对比实验4.2<br><img src="D:%5Cexperiment%5Cpic%5C4%5C4.2%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
-<li>对比实验4.3<br><img src="D:%5Cexperiment%5Cpic%5C4%5C4.3%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
-<li>对比实验4.4<br><img src="D:%5Cexperiment%5Cpic%5C4%5C4.4%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验4.1<br><img src="pic%5C4%5C4.1%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验4.2<br><img src="pic%5C4%5C4.2%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验4.3<br><img src="pic%5C4%5C4.3%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验4.4<br><img src="pic%5C4%5C4.4%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
 </ul>
 <h4 id="4-实验小结：-3"><a href="#4-实验小结：-3" class="headerlink" title="4.实验小结："></a>4.实验小结：</h4><p>从折线图中，我们可以明显的观察到，随着阈值的增大，精确度在下降，而敏感度在增加。这点也不难推测，当阈值增加时拒绝原假设的条件更加宽松，被判断为变异基因位点的数量也增多，这就导致了覆盖的基因位点增多但准确率却得不到保障。<br>从频次图中，我们可以观察到，随着阈值的增大，波峰变得更高更细了。</p>
 <h3 id="对比实验五"><a href="#对比实验五" class="headerlink" title="对比实验五"></a>对比实验五</h3><h4 id="1-实验目的：-4"><a href="#1-实验目的：-4" class="headerlink" title="1.实验目的："></a>1.实验目的：</h4><p>通过修改<strong>样本数/基因位点数</strong>，来比较该参数对实验结果的影响。</p>
@@ -705,15 +706,15 @@
     </tr>
 </table>
 
-<p><strong>敏感度与准确度折线图</strong>：<br><img src="D:%5Cexperiment%5Cpic%5C5%5C5%E6%8A%98%E7%BA%BF%E5%9B%BE1.png" alt="avatar"><br><img src="D:%5Cexperiment%5Cpic%5C5%5C5%E6%8A%98%E7%BA%BF%E5%9B%BE2.png" alt="avatar"></p>
+<p><strong>敏感度与准确度折线图</strong>：<br><img src="pic%5C5%5C5%E6%8A%98%E7%BA%BF%E5%9B%BE1.png" alt="avatar"><br><img src="pic%5C5%5C5%E6%8A%98%E7%BA%BF%E5%9B%BE2.png" alt="avatar"></p>
 <p><strong>变异位点频次图</strong>：</p>
 <ul>
-<li>对比实验5.1<br><img src="D:%5Cexperiment%5Cpic%5C5%5C5.1%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
-<li>对比实验5.2<br><img src="D:%5Cexperiment%5Cpic%5C5%5C5.2%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
-<li>对比实验5.3<br><img src="D:%5Cexperiment%5Cpic%5C5%5C5.3%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
-<li>对比实验5.4<br><img src="D:%5Cexperiment%5Cpic%5C5%5C5.4%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
-<li>对比实验5.5<br><img src="D:%5Cexperiment%5Cpic%5C5%5C5.5%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
-<li>对比实验5.6<br><img src="D:%5Cexperiment%5Cpic%5C5%5C5.6%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验5.1<br><img src="pic%5C5%5C5.1%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验5.2<br><img src="pic%5C5%5C5.2%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验5.3<br><img src="pic%5C5%5C5.3%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验5.4<br><img src="pic%5C5%5C5.4%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验5.5<br><img src="pic%5C5%5C5.5%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验5.6<br><img src="pic%5C5%5C5.6%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
 </ul>
 <h4 id="4-实验小结：-4"><a href="#4-实验小结：-4" class="headerlink" title="4.实验小结："></a>4.实验小结：</h4><p>对比实验5.1到5.4，从折线图可以看出，当样本数增加时，可以看到准确度、敏感度以及准确度的稳定性得到了很大的提升，这说明了增加样本数更加有利于我们得到更准确更稳定的结果。同时从频次图也能看出，变异位点处的波峰变得更高更宽了，说明敏感度也得到了较大的提升。<br>对比实验5.2、5.5、5.6，插入变异基因有一部分位于900-919区间，当模拟的基因位点只有1000个时，即实验5.5，可以发现这部分变异基因没有检测出来，这可能反映了这样一个现象：位于边缘处的变异基因更难被检测出来。</p>
 <h3 id="对比实验六"><a href="#对比实验六" class="headerlink" title="对比实验六"></a>对比实验六</h3><h4 id="1-实验目的：-5"><a href="#1-实验目的：-5" class="headerlink" title="1.实验目的："></a>1.实验目的：</h4><p>通过修改<strong>模拟数据插入变异基因位点的增益值</strong>，来比较该参数对实验结果的影响。</p>
@@ -813,12 +814,12 @@
     </tr>
 </table>
 
-<p><strong>敏感度与准确度折线图</strong>：<br><img src="D:%5Cexperiment%5Cpic%5C6%5C6%E6%8A%98%E7%BA%BF%E5%9B%BE.png" alt="avatar"><br><strong>变异位点频次图</strong>：</p>
+<p><strong>敏感度与准确度折线图</strong>：<br><img src="pic%5C6%5C6%E6%8A%98%E7%BA%BF%E5%9B%BE.png" alt="avatar"><br><strong>变异位点频次图</strong>：</p>
 <ul>
-<li>对比实验6.1<br><img src="D:%5Cexperiment%5Cpic%5C6%5C6.1%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
-<li>对比实验6.2<br><img src="D:%5Cexperiment%5Cpic%5C6%5C6.2%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
-<li>对比实验6.3<br><img src="D:%5Cexperiment%5Cpic%5C6%5C6.3%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
-<li>对比实验6.4<br><img src="D:%5Cexperiment%5Cpic%5C6%5C6.4%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验6.1<br><img src="pic%5C6%5C6.1%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验6.2<br><img src="pic%5C6%5C6.2%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验6.3<br><img src="pic%5C6%5C6.3%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验6.4<br><img src="pic%5C6%5C6.4%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
 </ul>
 <h4 id="4-实验小结：-5"><a href="#4-实验小结：-5" class="headerlink" title="4.实验小结："></a>4.实验小结：</h4><p>从折线图中可以看出，当增益值增大时，敏感度、准确度和准确度稳定性都有所增加，说明了增益值越大，变异基因位点越明显，越容易被发现。<br>从频次图中可以看出，当某个区间的增益值越大时，其他区间的变异基因位点更难被发现，甚至无法被发现。</p>
 <h3 id="对比实验七"><a href="#对比实验七" class="headerlink" title="对比实验七"></a>对比实验七</h3><h4 id="1-实验目的：-6"><a href="#1-实验目的：-6" class="headerlink" title="1.实验目的："></a>1.实验目的：</h4><p>通过修改<strong>模拟数据插入变异基因位点的频次</strong>，来比较该参数对实验结果的影响。</p>
@@ -918,12 +919,12 @@
     </tr>
 </table>
 
-<p><strong>敏感度与准确度折线图</strong>：<br><img src="D:%5Cexperiment%5Cpic%5C7%5C7%E6%8A%98%E7%BA%BF%E5%9B%BE.png" alt="avatar"><br><strong>变异位点频次图</strong>：</p>
+<p><strong>敏感度与准确度折线图</strong>：<br><img src="pic%5C7%5C7%E6%8A%98%E7%BA%BF%E5%9B%BE.png" alt="avatar"><br><strong>变异位点频次图</strong>：</p>
 <ul>
-<li>对比实验7.1<br><img src="D:%5Cexperiment%5Cpic%5C7%5C7.1%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
-<li>对比实验7.2<br><img src="D:%5Cexperiment%5Cpic%5C7%5C7.2%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
-<li>对比实验7.3<br><img src="D:%5Cexperiment%5Cpic%5C7%5C7.3%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
-<li>对比实验7.4<br><img src="D:%5Cexperiment%5Cpic%5C7%5C7.4%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"><h4 id="4-实验小结：-6"><a href="#4-实验小结：-6" class="headerlink" title="4.实验小结："></a>4.实验小结：</h4>从频次图可以看出，当某个区间的变异基因位点出现的频次较少时，检测到该区间基因位点变异的概念就越小；当某个区间的变异基因位点出现的频次很大时，其他区间基因位点的变异就很难被检测到。</li>
+<li>对比实验7.1<br><img src="pic%5C7%5C7.1%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验7.2<br><img src="pic%5C7%5C7.2%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验7.3<br><img src="pic%5C7%5C7.3%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验7.4<br><img src="pic%5C7%5C7.4%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"><h4 id="4-实验小结：-6"><a href="#4-实验小结：-6" class="headerlink" title="4.实验小结："></a>4.实验小结：</h4>从频次图可以看出，当某个区间的变异基因位点出现的频次较少时，检测到该区间基因位点变异的概念就越小；当某个区间的变异基因位点出现的频次很大时，其他区间基因位点的变异就很难被检测到。</li>
 </ul>
 <h3 id="对比实验八"><a href="#对比实验八" class="headerlink" title="对比实验八"></a>对比实验八</h3><h4 id="1-实验目的：-7"><a href="#1-实验目的：-7" class="headerlink" title="1.实验目的："></a>1.实验目的：</h4><p>通过修改<strong>模拟数据插入变异基因位点的区间</strong>，来比较该参数对实验结果的影响。</p>
 <h4 id="2-实验参数：-7"><a href="#2-实验参数：-7" class="headerlink" title="2.实验参数："></a>2.实验参数：</h4><table>
@@ -1022,12 +1023,12 @@
     </tr>
 </table>
 
-<p><strong>敏感度与准确度折线图</strong>：<br><img src="D:%5Cexperiment%5Cpic%5C8%5C8%E6%8A%98%E7%BA%BF%E5%9B%BE.png" alt="avatar"><br><strong>变异位点频次图</strong>：</p>
+<p><strong>敏感度与准确度折线图</strong>：<br><img src="pic%5C8%5C8%E6%8A%98%E7%BA%BF%E5%9B%BE.png" alt="avatar"><br><strong>变异位点频次图</strong>：</p>
 <ul>
-<li>对比实验8.1<br><img src="D:%5Cexperiment%5Cpic%5C8%5C8.1%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
-<li>对比实验8.2<br><img src="D:%5Cexperiment%5Cpic%5C8%5C8.2%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
-<li>对比实验8.3<br><img src="D:%5Cexperiment%5Cpic%5C8%5C8.3%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
-<li>对比实验8.4<br><img src="D:%5Cexperiment%5Cpic%5C8%5C8.4%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验8.1<br><img src="pic%5C8%5C8.1%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验8.2<br><img src="pic%5C8%5C8.2%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验8.3<br><img src="pic%5C8%5C8.3%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验8.4<br><img src="pic%5C8%5C8.4%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
 </ul>
 <h4 id="4-实验小结：-7"><a href="#4-实验小结：-7" class="headerlink" title="4.实验小结："></a>4.实验小结：</h4><p>从频次图中可以看出，当某个基因位点变异区间很小时，很难检测不到该基因位点的变异；随着该区间的增大，基因位点的变异越容易检测到，但会导致其他区间的基因位点变异更难被检测。</p>
 <h3 id="对比实验九"><a href="#对比实验九" class="headerlink" title="对比实验九"></a>对比实验九</h3><h4 id="1-实验目的：-8"><a href="#1-实验目的：-8" class="headerlink" title="1.实验目的："></a>1.实验目的：</h4><p>在计算每个置换矩阵统计量<code>sst,(t=1,2,3.....n)</code>时，我们取的是均值<code>si*</code>的<strong>最大值</strong>。如果我们取均值<code>si*</code>的<strong>中值/平均值/最小值</strong>，是否会对实验结果造成影响。</p>
@@ -1132,12 +1133,12 @@
     </tr>
 </table>
 
-<p><strong>敏感度与准确度折线图</strong>：<br><img src="D:%5Cexperiment%5Cpic%5C9%5C9%E6%8A%98%E7%BA%BF%E5%9B%BE.png" alt="avatar"><br><strong>变异位点频次图</strong>：</p>
+<p><strong>敏感度与准确度折线图</strong>：<br><img src="pic%5C9%5C9%E6%8A%98%E7%BA%BF%E5%9B%BE.png" alt="avatar"><br><strong>变异位点频次图</strong>：</p>
 <ul>
-<li>对比实验9.1<br><img src="D:%5Cexperiment%5Cpic%5C9%5C9.1%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
-<li>对比实验9.2<br><img src="D:%5Cexperiment%5Cpic%5C9%5C9.2%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
-<li>对比实验9.3<br><img src="D:%5Cexperiment%5Cpic%5C9%5C9.3%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
-<li>对比实验9.4<br><img src="D:%5Cexperiment%5Cpic%5C9%5C9.4%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验9.1<br><img src="pic%5C9%5C9.1%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验9.2<br><img src="pic%5C9%5C9.2%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验9.3<br><img src="pic%5C9%5C9.3%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
+<li>对比实验9.4<br><img src="pic%5C9%5C9.4%E9%A2%91%E6%AC%A1%E5%9B%BE.png" alt="avatar"></li>
 </ul>
 <h4 id="4-实验小结：-8"><a href="#4-实验小结：-8" class="headerlink" title="4.实验小结："></a>4.实验小结：</h4><p>从折线图可以看出，除了取最大值外，其他取值都会导致数据出现比较极端的情况。<br>从频次图可以看出，可能是由于数据的特性，取中位数和平均数的结果相近。当取最小值时，结果最不乐观，虽然敏感度很高但是准确率却非常低，基本没有什么参考价值。这也验证了取最大值的正确性。</p>
 <h2 id="第四部分：总结与反思"><a href="#第四部分：总结与反思" class="headerlink" title="第四部分：总结与反思"></a>第四部分：总结与反思</h2><p>在本次课程中，我学习了R语言的基本语法，并学会了如何用R语言去处理数据。同时，也学会了利用置换检验的统计方法去判断样本间的差异是否显著。<br>除了学习到理论知识外，我还在老师的启发和鼓励下，针对多个参数进行对比实验。通过设计不同的对比实验，我不仅复习了课堂上学到的理论知识、强化了实操技能，更重要的是培养了探索求知的精神。在一次次实验中观察、总结，最后发现规律将其升华成有实际意义的理论知识，不正是我们研究生应该具备的品质吗？<br>当然，本次实验也存在一些不足，比如实验次数较少、设计的对比实验还不够丰富、实验小结主观性较强等。这都是以后我做实验时需要注意的问题。</p>
@@ -1165,7 +1166,7 @@
         admin: ["ascodelife"],
         id: "2020/05/05/experiment",
         distractionFreeMode: true,
-        title: "experiment",
+        title: "数据分析原理与实验报告",
         body: "https://ascodelife.github.io/2020/05/05/experiment/",
         labels: []
     }).render('comments');
