@@ -10,7 +10,7 @@
     <title>学习笔记——防抖与节流实例 | Welcome to My Blog</title>
     <meta name="author" content="John Doe" />
     <meta name="keywords" content="" />
-    <meta name="description" content="前言前前后后看了很多关于防抖和节流的文章，一直没有编程总结。防抖和节流其实比较类似，都是闭包的简单应用。前者关键在于用户频繁进行多次操作时，只响应一次；后者关键在于控制操作的频率。下次将列举出关键函数代码与实际运用例子。防抖防抖关键函数123456789function debounce(f, wait) &amp;#123;  let timmer = null;  return (...args) =&amp;gt; &amp;#123;    if (timmer) clearInterval(timm..." />
+    <meta name="description" content="前言前前后后看了很多关于防抖和节流的文章，一直没有编程总结。防抖和节流其实比较类似，都是闭包的简单应用。前者关键在于用户频繁进行多次操作时，只响应一次；后者关键在于控制操作的频率。下次将列举出关键函数代码与实际运用例子。防抖防抖关键函数123456789function debounce(f, wait) &amp;#123;  let timmer = null;  return (...args) =&amp;gt; &amp;#123;    if (timmer) clearInterval(timme..." />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 
@@ -97,7 +97,7 @@
         
 
         
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#防抖"><span class="toc-number">2.</span> <span class="toc-text">防抖</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#防抖"><span class="toc-number">2.</span> <span class="toc-text">防抖</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#防抖关键函数"><span class="toc-number">2.1.</span> <span class="toc-text">防抖关键函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数调用示例"><span class="toc-number">2.2.</span> <span class="toc-text">函数调用示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实战说明"><span class="toc-number">2.3.</span> <span class="toc-text">实战说明</span></a></li></ol></li></ol>
         
     </div>
 </aside>
@@ -135,15 +135,14 @@
     <section class="article-body markdown-body">
         
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前前后后看了很多关于防抖和节流的文章，一直没有编程总结。防抖和节流其实比较类似，都是闭包的简单应用。前者关键在于用户频繁进行多次操作时，只响应一次；后者关键在于控制操作的频率。下次将列举出关键函数代码与实际运用例子。</p>
-<h2 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h2><p>防抖关键函数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">f, wait</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> timmer = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">...args</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (timmer) clearInterval(timmer);</span><br><span class="line">    timmer = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      f(...args);</span><br><span class="line">    &#125;, wait);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h2><h3 id="防抖关键函数"><a href="#防抖关键函数" class="headerlink" title="防抖关键函数"></a>防抖关键函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">f, wait</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> timmer = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">...args</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (timmer) clearInterval(timmer);</span><br><span class="line">    timmer = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      f(...args);</span><br><span class="line">    &#125;, wait);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>关键的两个点在于使用闭包保存<code>timmer</code>，以及ES6的剩余参数来传入回调函数的若干个参数。</p>
-<p>函数调用示例</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myDebounce = debounce(myFn,<span class="number">1000</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;<span class="number">1000</span>;i++)&#123;</span><br><span class="line">    myDebounce();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="函数调用示例"><a href="#函数调用示例" class="headerlink" title="函数调用示例"></a>函数调用示例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myDebounce = debounce(myFn,<span class="number">1000</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;<span class="number">1000</span>;i++)&#123;</span><br><span class="line">    myDebounce();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>这样，即使调用1000次，也只会响应最后一次的请求。</p>
-<p>实战</p>
+<h3 id="实战说明"><a href="#实战说明" class="headerlink" title="实战说明"></a>实战说明</h3><p>该例子的应用场景主要为用户频繁点击提交按钮，可能会产生多次异步请求或同步运算，这样无论对用户还是对服务器都是不友好的。因此，我们使用防抖技术，当用户频繁点击提交时，我们只响应最后一次操作。</p>
+<p>请在下面的输入框中随机输入文本，然后疯狂点击提交按钮，只有当你停止点击2s后，你的请求才会被提交，你会看到提交成功的提示说明。</p>
 <iframe src="/demo/frontend/debounceAndThrottle/debounce.html" width=100% height=320px></iframe>
         
     </section>
