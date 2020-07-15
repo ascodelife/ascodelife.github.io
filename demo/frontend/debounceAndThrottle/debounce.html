@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+  </head>
+  <script>
+    const myDebounce = debounce(addLog, 2000);
+    window.onload = event => {
+      document.querySelector("button").addEventListener(
+        "click",
+        e => {
+          e.preventDefault();
+          const msg = document.getElementById("msg").value;
+          myDebounce(msg);
+        },
+        false
+      );
+    };
+    function debounce(f, wait) {
+      let timmer = null;
+      return (...args) => {
+        if (timmer) clearInterval(timmer);
+        timmer = setTimeout(function() {
+          f(...args);
+        }, wait);
+      };
+    }
+    function addLog(msg) {
+      const newP = document.createElement("p");
+      newP.appendChild(document.createTextNode(msg + "----" + new Date()));
+      document.getElementById("log").appendChild(newP);
+    }
+  </script>
+  <body>
+    <div id="box">
+      <form action="">
+        <input id="msg" type="text" />
+        <button>提交</button>
+      </form>
+      <div id="log"></div>
+    </div>
+  </body>
+</html>
