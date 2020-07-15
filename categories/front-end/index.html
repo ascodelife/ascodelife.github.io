@@ -163,28 +163,14 @@
     <section class="article-body markdown-body">
         
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前前后后看了很多关于防抖和节流的文章，一直没有编程总结。防抖和节流其实比较类似，都是闭包的简单应用。前者关键在于用户频繁进行多次操作时，只响应一次；后者关键在于控制操作的频率。下次将列举出关键函数代码与实际运用例子。</p>
-<h2 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h2><h3 id="防抖关键函数"><a href="#防抖关键函数" class="headerlink" title="防抖关键函数"></a>防抖关键函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">f, wait</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timmer = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function">(<span class="params">...args</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (timmer) clearInterval(timmer);</span><br><span class="line">        timmer = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            f(...args);</span><br><span class="line">        &#125;, wait);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>关键的两个点在于使用闭包保存<code>timmer</code>，以及ES6的剩余参数来传入回调函数的若干个参数。</p>
-<h3 id="函数调用示例"><a href="#函数调用示例" class="headerlink" title="函数调用示例"></a>函数调用示例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myDebounce = debounce(myFn,<span class="number">1000</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;<span class="number">1000</span>;i++)&#123;</span><br><span class="line">    myDebounce(arg1,arg2,arg3);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这样，即使调用1000次，也只会响应最后一次的请求。</p>
-<h3 id="实战说明"><a href="#实战说明" class="headerlink" title="实战说明"></a>实战说明</h3><p>该例子的应用场景主要为用户频繁点击提交按钮，可能会产生多次异步请求或同步运算，这样无论对用户还是对服务器都是不友好的。因此，我们使用防抖技术，当用户频繁点击提交时，我们只响应最后一次操作。</p>
-<p>请在下面的输入框中随机输入文本，然后疯狂点击提交按钮，只有当你停止点击2s后，你的请求才会被提交，你会看到提交成功的提示说明。</p>
-<iframe src="/demo/frontend/debounceAndThrottle/debounce.html" width=100% height=320px></iframe>
-
-<h2 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h2><h3 id="防抖关键函数-1"><a href="#防抖关键函数-1" class="headerlink" title="防抖关键函数"></a>防抖关键函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">f, wait</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timmer = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function">(<span class="params">...args</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (timmer) <span class="keyword">return</span>;</span><br><span class="line">        timmer = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            f(...args);</span><br><span class="line">        &#125;, wait);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>关键技术点和节流类似，只是当<code>timmer</code>实例已经存在时的处理方式不同。实际上仅变动了两行代码。</p>
-<h3 id="函数调用示例-1"><a href="#函数调用示例-1" class="headerlink" title="函数调用示例"></a>函数调用示例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myThrottle = throttle(myFn,<span class="number">1000</span>);</span><br><span class="line">setTimeIntervar(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">    	myThrottle(arg1,arg2,arg3);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;,<span class="number">500</span>);</span><br></pre></td></tr></table></figure>
-
-<p>当间隔1s调用4次<code>myThrottle</code>函数时，“理论上”会执行两次回调函数。（理论上指的是事件循环无法保证一定在0.5s间隔内就执行一次定时任务也无法保证每次定时任务一定会被执行。）</p>
-<h3 id="实战说明-1"><a href="#实战说明-1" class="headerlink" title="实战说明"></a>实战说明</h3><p>当滚动进度条时，我们不需要每次滚动事件触发就进行响应，而是间隔一定时间后响应一次，这样可以在保证用户正常体验的前提下减少性能损耗。</p>
-<p>即使疯狂对<code>box</code>上下滚动，可以发现它只会间隔2s响应一次。当你停止滚动时，它有可能会再响应一次。</p>
-<iframe src="/demo/frontend/debounceAndThrottle/throttle.html" width=100% height=500px></iframe>
-
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>虽然防抖和节流实现起来十分简单，但是却有很重要的地位，值得不断学习与实践。</p>
-
+        
+        <p class="article-more-link">
+            <a href="/2020/07/15/debounceAndThrottle/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
         
     </section>
 </article>
